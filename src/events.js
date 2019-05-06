@@ -16,6 +16,11 @@ const slack = require( './slack' ),
 
 const camelCase = require( 'lodash.camelcase' );
 
+const privaterooms = (
+  'GJH8YS62K' + //ET - Testprivate
+  'gxxxxxxx' +
+)
+
 /**
  * Handles an attempt by a user to 'self plus' themselves, which includes both logging the attempt
  * and letting the user know it wasn't successful.
@@ -190,6 +195,11 @@ const handlers = {
     const { item, operation } = helpers.extractPlusMinusEventData( event.text );
 
     if ( ! item || ! operation ) {
+      return false;
+    }
+    // Bail if Private group and not whitelisted
+    if (privaterooms.indexOf(event.channel) > -1) {
+      handleSelfPlus( event.user, event.channel );
       return false;
     }
 
