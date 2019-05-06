@@ -35,6 +35,11 @@ const handleSelfPlus = ( user, channel ) => {
   const message = messages.getRandomMessage( operations.operations.SELF, user );
   return slack.sendMessage( message, channel );
 };
+const BannedChan = ( user, channel ) => {
+  console.log( user + ' tried to alter their own score.' );
+  const message = messages.getRandomMessage( operations.operations.bannedchan, user );
+  return slack.sendMessage( message, channel );
+};
 
 /**
  * Handles a plus or minus against a user, and then notifies the channel of the new score.
