@@ -198,7 +198,7 @@ const handlers = {
       return false;
     }
     // Bail if Private group and not whitelisted
-    if (privaterooms.indexOf(event.channel) > -1) {
+    if (privaterooms.indexOf(event.channel) === -1) {
       handleSelfPlus( event.user, event.channel );
       return false;
     }
