@@ -10,8 +10,7 @@ const operations = {
   SELF: 'selfPlus',
   RANDOM: 'random',
   EQUAL: 'equal',
-  REALLYRANDOM: 'reallyrandom',
-  BANNEDCHAN: 'bannedchan'
+  REALLYRANDOM: 'reallyrandom'
 };
 
 /**

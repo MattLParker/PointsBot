@@ -35,11 +35,6 @@ const handleSelfPlus = ( user, channel ) => {
   const message = messages.getRandomMessage( operations.operations.SELF, user );
   return slack.sendMessage( message, channel );
 };
-const handleBannedChan = ( user, channel ) => {
-  console.log( user + ' tried to alter their own score.' );
-  const message = messages.getRandomMessage( operations.operations.bannedchan, user );
-  return slack.sendMessage( message, channel );
-};
 
 /**
  * Handles a plus or minus against a user, and then notifies the channel of the new score.
@@ -174,6 +169,28 @@ const sendHelp = ( event ) => {
   return slack.sendMessage( message, event.channel );
 
 }; // SendHelp.
+const handleBannedChan = ( event ) => {
+
+  const botUserID = helpers.extractUserID( event.text );
+
+  const message = (
+    'Sure, here\'s what I can do:\n\n' +
+    '• `@Someone++`: Add points to a user or a thing\n' +
+    '• `@Someone--`: Subtract points from a user or a thing\n' +
+    '• `@Someone==`: Gets current points from a user or a thing\n' +
+    // '• `@Someone##`: Randomly adds or removes 1-5 points from a user or a thing\n' +
+    '• `<@' + botUserID + '> leaderboard`: Display the leaderboard\n' +
+    '• `<@' + botUserID + '> help`: Display this message\n\n' +
+    'You\'ll need to invite me to a channel before I can recognise ' +
+    '`++` and `--` commands in it.\n\n' +
+    'If you\'re a developer, you can teach me new things! :awwww_yeah:  '
+     
+  );
+
+  return slack.sendMessage( message, event.channel );
+
+}; // SendHelp.
+
 
 const donothing = ( event ) => {
 
