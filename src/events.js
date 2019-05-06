@@ -169,7 +169,7 @@ const sendHelp = ( event ) => {
   return slack.sendMessage( message, event.channel );
 
 }; // SendHelp.
-const handleBannedChan = ( channel ) => {
+const handleBannedChan = ( event ) => {
 
     const message = (
     'This channel has not been approved for me to participate.' 
@@ -209,7 +209,7 @@ const handlers = {
     }
     // Bail if Private group and not whitelisted
     if (privaterooms.indexOf(event.channel) === -1) {
-      handleBannedChan( event.channel );
+      handleBannedChan( event );
       return false;
     }
 
