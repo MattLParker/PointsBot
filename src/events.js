@@ -35,7 +35,7 @@ const handleSelfPlus = ( user, channel ) => {
   const message = messages.getRandomMessage( operations.operations.SELF, user );
   return slack.sendMessage( message, channel );
 };
-const BannedChan = ( user, channel ) => {
+const handleBannedChan = ( user, channel ) => {
   console.log( user + ' tried to alter their own score.' );
   const message = messages.getRandomMessage( operations.operations.bannedchan, user );
   return slack.sendMessage( message, channel );
@@ -204,7 +204,7 @@ const handlers = {
     }
     // Bail if Private group and not whitelisted
     if (privaterooms.indexOf(event.channel) === -1) {
-      handleSelfPlus( event.user, event.channel );
+      handleBannedChan( event.user, event.channel );
       return false;
     }
 
