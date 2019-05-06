@@ -18,7 +18,7 @@ const camelCase = require( 'lodash.camelcase' );
 
 const privaterooms = (
   'GJH8YS62K' + //ET - Testprivate
-  'gxxxxxxx' +
+  'gxxxxxxx' 
 )
 
 /**
