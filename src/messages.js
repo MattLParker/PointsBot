@@ -66,19 +66,6 @@ messages[ operations.MINUS ] = [
   }
 ];
 
-messages[ operations.BANNEDCHAN ] = [
-  {
-    probability: 100,
-    set: [
-      'This channel has not been approved for me to participate.'
-    ]
-  },
-  {
-    probability: 100,
-    set: [ ':shifty:' ]
-  }
-];
-
 messages[ operations.EQUAL ] = [
   {
     probability: 100,
