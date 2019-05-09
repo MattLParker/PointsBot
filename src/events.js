@@ -208,7 +208,7 @@ const handlers = {
       return false;
     }
     // Bail if Private group and not whitelisted
-    if ( event.channel.test(/G\w{8}/) && privaterooms.indexOf(event.channel) === -1) {
+    if ( (event.channel).test(/G\w{8}/) && privaterooms.indexOf(event.channel) === -1) {
       handleBannedChan( event );
       return false;
     }
